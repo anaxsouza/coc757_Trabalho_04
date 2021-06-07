@@ -11,6 +11,22 @@ D = np.diag(np.arange(1, n+1, 1))
 QT = np.transpose(Q)
 A = Q @ D @ QT
 
+'''
+print('Q')
+print(Q)
+print('R')
+print(R)
+
+print('D')
+print(D)
+
+print('QT')
+print(QT)
+
+print('A')
+print(A)
+'''
+
 Alfa = np.zeros(n)
 Beta = np.zeros(n-1)
 
@@ -82,3 +98,35 @@ ax1.set_ylabel('iteration', fontsize=12)
 
 #plt.savefig('figure_1.png')
 plt.show()
+
+'''
+print('\n\nAlfa')
+print(Alfa)
+
+print('\n\nBeta')
+print(Beta)
+
+T = np.zeros((n, n))
+cont1 = 0
+cont2 = 0
+cont3 = 0
+
+for i in range(n):
+    for j in range(n):
+        if i == j:
+            T[i][j] = Alfa[cont1]
+            cont1 = cont1 + 1
+        if (i-j) == -1:
+            T[i][j] = Beta[cont2]
+            cont2 = cont2 + 1
+        if (i-j) == 1:
+            T[i][j] = Beta[cont3]
+            cont3 = cont3 + 1
+
+print('\nT')
+print(T)
+
+w, v = np.linalg.eig(T)
+print('E-value:', w)
+print('E-vector', v)
+'''
